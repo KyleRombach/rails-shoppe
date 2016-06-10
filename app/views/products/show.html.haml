@@ -1,0 +1,21 @@
+%h1= @product.name
+
+%p
+  %b Price:
+  = number_to_currency @product.price
+%p
+  %b Image:
+  = image_tag @product.image, height: "200"
+%p
+  %b Stock:
+  = @product.stock
+%p
+  %b Categories:
+  = @product.category.name
+
+%hr
+
+.btn-group{:role => "group"}
+
+= link_to "Add to cart", add_cart_path, method: :post, class: "btn btn-default", id: 'add'
+= link_to 'continue shopping', products_path, class: "btn btn-default"
